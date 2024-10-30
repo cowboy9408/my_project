@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>nodeMCU 제품 상세</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/Detail.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="/js/detail.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd2mY7dAKud5B778UrKgrkXE7tmBfU4x4&libraries=marker&callback=initMap" async defer></script>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+</head>
+<body>
+  <div class="background-wrap">
+    <div class="background"></div>
+  </div>
+    <div class="main">
+        <input type="checkbox" id="check">
+        <label for="check">
+          <i class="fas fa-bars" id="btn"></i>
+          <i class="fas fa-times" id="cancel"></i>
+        </label>
+        <div class="sidebar">
+          <header class="head">NodeMCU</header>
+          <a class="menu" href="/dashboard">
+            <i class="fas fa-qrcode"></i>
+            <span>Dashboard</span>
+          </a>
+          <a class="menu" href="/products">
+            <i class="fas fa-link"></i>
+            <span>Device Regist</span>
+          </a>
+          <a class="menu" href="/logview">
+            <i class="fas fa-stream"></i>
+            <span>Log View</span>
+          </a>
+         <!-- <a href="#">
+             <i class="fas fa-calendar"></i>
+            <span>Detail</span>
+          </a> -->
+          <!-- <a href="#">
+            <i class="far fa-question-circle"></i>
+            <span>About</span>
+          </a>
+          <a href="#">
+            <i class="fas fa-sliders-h"></i>
+            <span>Services</span>
+          </a>
+          <a href="#">
+            <i class="far fa-envelope"></i>
+            <span>Contact</span>
+          </a> -->
+       
+        </div>
+        
+        <div class="product-container">
+          <img src="/image/제품 준비.jpg" alt="제품 이미지" class="product-image">
+          <h2 class="product-title"><%= product.name %></h2>
+          <div class="product-info">
+              <strong>시리얼 번호 :</strong> <%= product.serialNumber %>
+          </div>
+          <div class="product-info">
+              <strong>등록 날짜 :</strong> <%= new Date(product.registrationDate).toLocaleDateString() %>
+          </div>
+          <div class="product-info">
+            <strong>위치 정보 :</strong> <%= product.latitude %> (위도)
+                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         <%= product.longitude %> (경도)
+        </div>
+          <div>
+              <a class="move" href="/products" style="color: white; border-left: none;"><button type="button">리스트로 이동</button></a>
+              <a class="move1" href="/dashboard" style="color: white; border-left: none;"><button type="button">대시보드로 이동</button></a>
+          </div>
+          <div id="map" data-latitude="<%= product.latitude %>" data-longitude="<%= product.longitude %>"></div>
+    </div>
+      </div>
+      <h1>Device Info</h1>
+   <p class="logout">
+     <a href="/logout">
+    <button type="button">로그아웃</button>
+  </a>
+</p>
+<div class="data" style="display: flex; align-items: center; margin-bottom: 10px;">
+  <i class="fas fa-wind pm-icon" style="color:white; margin-right: 8px;"></i>
+  <p id="pm2" class="pm-font"> <%= product.pm2 %> µg/m³</p>
+</div>
+
+<div class="data" style="display: flex; align-items: center; margin-bottom: 10px;">
+  <i class="fas fa-cloud co2-icon" style="color:green; margin-right: 8px;"></i>
+  <p id="co2" class="co2-font"> <%= product.co2 %> ppm</p>
+</div>
+
+<div class="data" style="display: flex; align-items: center; margin-bottom: 10px;">
+  <i class="fas fa-thermometer-half temp-icon" style="color:red; margin-right: 8px;"></i>
+  <p id="temp" class="temp-font"> <%= product.temp %> °C</p>
+</div>
+
+<div class="data" style="display: flex; align-items: center; margin-bottom: 10px;">
+  <i class="fas fa-tint humid-icon" style="color:skyblue; margin-right: 8px;"></i>
+  <p id="humid" class="humid-font"> <%= product.humid %> %</p>
+</div>
+
+<div class="data" style="display: flex; align-items: center; margin-bottom: 10px;">
+  <i class="fas fa-smog voc-icon" style="color:gray; margin-right: 8px;"></i>
+  <p id="voc" class="voc-font"> <%= product.voc %> ppb</p>
+</div>
+</body>
+<script>
+  var productId = "<%= product._id %>";
+</script>
+</html>

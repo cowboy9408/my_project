@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <title>nodeMCU 제품 등록</title>
+    <meta charset="utf-8">
+    <!-- <title>Responsive Sidebar Menu</title> -->
+    <link rel="stylesheet" href="/css/device.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="/js/new.js"></script>
+  </head>
+  <body>
+    <div class="background-wrap">
+      <div class="background"></div>
+    </div>
+    <div class="main">
+    
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+      <header>NodeMCU</header>
+      <a href="/dashboard">
+        <i class="fas fa-qrcode"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="/products"">
+        <i class="fas fa-link"></i>
+        <span>Device List</span>
+      </a>
+      <a href="/logview">
+        <i class="fas fa-stream"></i>
+        <span>Log View</span>
+      </a>
+     <!-- <a href="#">
+         <i class="fas fa-calendar"></i>
+        <span>Events</span>
+      </a>
+      <a href="#">
+        <i class="far fa-question-circle"></i>
+        <span>About</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-sliders-h"></i>
+        <span>Services</span>
+      </a>
+      <a href="#">
+        <i class="far fa-envelope"></i>
+        <span>Contact</span>
+      </a>
+    -->
+    </div>
+    <div class="container">
+      <h2>디바이스 등록</h2>
+      <form id="newProductForm" action="/products" method="POST">
+        <div class="regist_input">
+          <input type="text" name="name" placeholder="모델 명" required>
+          <input type="text" name="serialNumber" placeholder="일련 번호" required>
+          <input type="text" name="latitude" placeholder="위도" required>
+          <input type="text" name="longitude" placeholder="경도" required>
+          <input type="date" class="date" name="registrationDate" required>
+        </div>
+        <div class="regist_button">
+          <button type="button" onclick="confirmRegistration(event)">등록 완료</button>
+          <a href="/products">
+            <button id="back" type="button">뒤로</button>
+          </a>
+        </div>
+      </form>
+    </div>
+</div>
+<p class="logout">
+  <a href="/logout">
+  <button type="button">로그아웃</button>
+  </a>
+</p>
+</body>
+</html>

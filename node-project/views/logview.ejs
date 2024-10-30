@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <title>nodeMCU 제품 로그</title>
+    <meta charset="utf-8">
+    <!-- <title>Responsive Sidebar Menu</title> -->
+    <link rel="stylesheet" href="/css/logview.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/logview.js"></script>
+  </head>
+  <body>
+    <div class="background-wrap">
+      <div class="background"></div>
+    </div>
+    <div class="main">
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+      <header>NodeMCU</header>
+      <a href="/dashboard">
+        <i class="fas fa-qrcode"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="/products">
+        <i class="fas fa-link"></i>
+        <span>Device Regist</span>
+      </a>
+      <a href="/logview" class="active">
+        <i class="fas fa-stream"></i>
+        <span>Log View</span>
+      </a>
+     <!-- <a href="#">
+         <i class="fas fa-calendar"></i>
+        <span>Events</span>
+      </a>
+      <a href="#">
+        <i class="far fa-question-circle"></i>
+        <span>About</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-sliders-h"></i>
+        <span>Services</span>
+      </a>
+      <a href="#">
+        <i class="far fa-envelope"></i>
+        <span>Contact</span>
+      </a>
+    -->
+    </div>
+    <div class="table-wrapper">
+        <table >
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Serial Number</th>
+            <th>registrationDate</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>PM2</th>
+            <th>CO2</th>
+            <th>Temperature</th>
+            <th>Humidity</th>
+            <th>VOC</th>
+            <th>SendDate</th>
+            
+          </tr>
+          </thead>
+          <tbody id="update-history">
+            <% products.forEach(product => { %>
+              
+                  <tr>
+                      
+                      
+                  </tr>
+              
+          <% }) %>
+          </tbody>
+      </table> 
+      <div id="pagination"></div>
+    </div>   
+        </div>
+        <h1>Log View</h1>
+        <!-- <button class="refresh" onclick="refreshPage()">Refresh Page</button> -->
+<p class="logout">
+  <a href="/logout">
+  <button type="button">로그아웃</button>
+  </a>
+</p>
+
+</body>
+</html>

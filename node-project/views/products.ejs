@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <title>nodeMCU 제품 리스트</title>
+    <meta charset="utf-8">
+    <!-- <title>Responsive Sidebar Menu</title> -->
+    <link rel="stylesheet" href="/css/search.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/products.js"></script>
+  </head>
+  <body>
+    <div class="background-wrap">
+      <div class="background"></div>
+    </div>
+    <div class="main">
+       
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+      <header>NodeMCU</header>
+      <a href="/dashboard">
+        <i class="fas fa-qrcode"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="/products" class="active">
+        <i class="fas fa-link"></i>
+        <span>Device List</span>
+      </a>
+      <a href="/logview">
+        <i class="fas fa-stream"></i>
+        <span>Log View</span>
+      </a>
+     <!-- <a href="#">
+         <i class="fas fa-calendar"></i>
+        <span>Events</span>
+      </a>
+      <a href="#">
+        <i class="far fa-question-circle"></i>
+        <span>About</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-sliders-h"></i>
+        <span>Services</span>
+      </a>
+      <a href="#">
+        <i class="far fa-envelope"></i>
+        <span>Contact</span>
+      </a>
+    -->
+    </div>
+    <div class="device">
+      <p class="register">
+        <a href="/products/new">
+        <button type="button">등록</button>
+        </a>
+      </p>
+      <form class="search" action="/products/search" method="GET">
+        <input class="input" type="text" name="query" placeholder="제품 검색" />
+        <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+    <div class="scrollable-container">
+      <table class="table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Serial Number</th>
+        <th>Registration Date</th> 
+        <th></th>
+      </tr>
+      </thead>
+      <tbody id="product-list">
+        <% products.forEach(product => { %>
+          <tr>
+              <td>
+            </td>
+          </tr>
+      <% }) %>
+      </tbody>
+  </table>
+  <div id="pagination"></div>
+</div>
+</div>
+</div>
+    <h1>Device List</h1>
+
+   <p class="logout">
+     <a href="/logout">
+     <button type="button">로그아웃</button>
+     </a>
+   </p>
+</body>
+</html>

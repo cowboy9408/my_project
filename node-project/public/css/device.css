@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans:600&display=swap');
+body {
+
+  background: #3c3c3c;
+  color: #FFF;
+  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "Monsterrat", sans-serif;
+}
+.sidebar{
+  position: fixed;
+  width: 240px;
+  left: -240px;
+  height: 100%;
+  background: #1e1e1e;
+  transition: all .5s ease;
+  z-index: 1;
+}
+.sidebar header{
+  font-size: 28px;
+  color: white;
+  line-height: 70px;
+  text-align: center;
+  background: #1b1b1b;
+  user-select: none;
+  font-family: 'Montserrat', sans-serif;
+}
+.sidebar a{
+  display: block;
+  height: 65px;
+  width: 100%;
+  color: white;
+  line-height: 65px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  border-top: 1px solid rgba(255,255,255,.1);
+  border-left: 5px solid transparent;
+  font-family: 'Open Sans', sans-serif;
+  transition: all .5s ease;
+}
+a.active,a:hover{
+  border-left: 5px solid #b93632;
+  color: #b93632;
+}
+.sidebar a i{
+  font-size: 23px;
+  margin-right: 16px;
+}
+.sidebar a span{
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+#check{
+  display: none;
+}
+label #btn,label #cancel{
+  position: absolute;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #262626;
+  margin: 15px 30px;
+  font-size: 29px;
+  background: #262626;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  line-height: 45px;
+  transition: all .5s ease;
+}
+label #cancel{
+  opacity: 0;
+  visibility: hidden;
+}
+#check:checked ~ .sidebar{
+  left: 0;
+}
+#check:checked ~ label #btn{
+  margin-left: 245px;
+  opacity: 0;
+  visibility: hidden;
+}
+#check:checked ~ label #cancel{
+  margin-left: 245px;
+  opacity: 1;
+  visibility: visible;
+}
+@media(max-width : 860px){
+  .sidebar{
+    height: auto;
+    width: 70px;
+    left: 0;
+    margin: 100px 0;
+  }
+  header,#btn,#cancel{
+    display: none;
+  }
+  span{
+    position: absolute;
+    margin-left: 23px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .sidebar a{
+    height: 60px;
+  }
+  .sidebar a i{
+    margin-left: -10px;
+  }
+  a:hover {
+    width: 200px;
+    background: inherit;
+  }
+  .sidebar a:hover span{
+    opacity: 1;
+    visibility: visible;
+  }
+}
+ .logoutBtn input[type="submit"]{
+    position: absolute;
+    left: 1780px;
+    top: 15px;
+    padding: 9px 20px;
+    font-size: 19px;
+    color: aliceblue;
+    background-color: #1b1b1b;  
+    font-family: "Monsterrat", sans-serif;
+    border-radius: 10px;
+    cursor: pointer;
+ }
+ .logoutBtn input[value="로그아웃"]:hover {
+    background-color: #b93632;
+ }
+.container {
+    position: absolute;
+      top: 600px;
+      left: -50px;
+      transform: translate(110%, -80%);
+      width: 600px;
+      height:400px;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      text-align: center;
+      font-family: "Roboto", sans-serif; /* Apply Roboto font */
+      
+      
+    }
+    
+    /* Styling the login form */
+    #login-form {
+      display: inline-block;
+      text-align: left;
+    }
+    
+    /* Styling the heading */
+    h2 {
+      font-size: 35px;
+      margin-bottom: 20px;
+      margin-top: 10px;
+      color: #1b1b1b;
+    }
+    
+    /* Styling the input fields and submit button */
+    .regist_input input {
+      border: 2px solid lightgrey;
+      border-radius: 40px;
+      outline: none;
+      width: 90%;
+      height: 40px;
+      text-indent: 7px;
+      margin-bottom: 10px;
+      position: relative;
+      right: -00px;
+      top: 10px;
+      text-align: center;
+    }
+    
+    /* Styling the submit button */
+    .submit_button input[type="submit"] {
+      width: 20%;
+      padding: 10px;
+      background-color: black;
+      color: #fff;
+      border: 1px solid #dbdbdb;
+      border-radius: 40px;
+      outline: none;
+      font-size: 14px;
+      box-sizing: border-box; /* 추가: 박스 모델에 패딩과 테두리 포함 */
+      position: absolute;
+      top: 380px;
+      left: 200px;
+    }
+    #back{
+      width: 20%;
+      padding: 10px;
+      background-color: black;
+      color: #fff;
+      border: 1px solid #dbdbdb;
+      border-radius: 40px;
+      outline: none;
+      font-size: 14px;
+      box-sizing: border-box; /* 추가: 박스 모델에 패딩과 테두리 포함 */
+      position: absolute;
+      top: 380px;
+      left: 330px;
+    }
+    
+    /* Hover effect for the submit button */
+    .submit_button input[value="등록 완료"]:hover {
+      background-color: #b93632;
+    }
+    .regist_button button[type="button"] {
+      width: 20%;
+      padding: 10px;
+      background-color: black;
+      color: #fff;
+      border: 1px solid #dbdbdb;
+      border-radius: 40px;
+      outline: none;
+      font-size: 14px;
+      box-sizing: border-box; /* 추가: 박스 모델에 패딩과 테두리 포함 */
+      position: absolute;
+      top: 380px;
+      left:190px;
+    }
+    button[type=button] {
+      background: rgb(9, 9, 9);
+      border: 1px solid rgba(0,0,0,0.4);
+      border-radius: .3em;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 10px 10px rgba(255,255,255,0.1);
+      color: #fdfcfa;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: bold;
+      height: 40px;
+      padding: 5px 20px;
+      width: 100px;
+      z-index: 2;
+    
+    }
+    .logout{
+      position: absolute;
+      z-index: 3;
+      top: 15px;
+      right: 30px;
+      
+    }
+    
+    .background-wrap {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .background {
+      background: url('https://myrror.co/etc/419062774_1385132057.jpg');
+      background-position: center;
+      background-size: cover;
+      filter: blur(10px);
+      height: 105%;
+      position: relative;
+      width: 105%;
+      right: -2.5%;
+      left: -2.5%;
+      top: -2.5%;
+      bottom: -2.5%;
+    }
+
+    .date::-webkit-calendar-picker-indicator {
+      position: absolute;
+      right: 0;
+      width: 400px; /* 달력 아이콘의 너비를 설정합니다. */
+      height: 24px; /* 달력 아이콘의 높이를 설정합니다. */
+      cursor: pointer;
+      left: 500px;
+    }
+    .popup {
+      position: absolute;
+      top: 0;
+      left: 0px;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      
+      width: 100%;
+    }
+    .popup-content {
+      background: #000000;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      color: #ffffff;
+      height: 100px;
+      position: relative;
+    }
+    .ment{
+      position: relative;
+      top: 15px;
+      font-size: 13px;
+    }
+    .confirm{
+      position: relative;
+      background: #fb0;
+        border: 1px solid rgba(0,0,0,0.4);
+        border-radius: .3em;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 10px 10px rgba(255,255,255,0.1);
+        color: #873C00;
+        cursor: pointer;
+        font-size: 11px;
+        font-weight: bold;
+        height: 30px;
+        padding: 5px 10px;
+        width: 60px;
+        top: 50px;
+        text-align: center;
+      }
+      .cancel{
+        position: relative;
+        background: #fb0;
+          border: 1px solid rgba(0,0,0,0.4);
+          border-radius: .3em;
+          box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 10px 10px rgba(255,255,255,0.1);
+          color: #873C00;
+          cursor: pointer;
+          font-size: 11px;
+          font-weight: bold;
+          height: 30px;
+          padding: 5px 10px;
+          width: 60px;
+          top: 50px;
+      }
+    

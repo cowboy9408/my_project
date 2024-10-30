@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <title>nodeMCU 제품 수정</title>
+    <meta charset="utf-8">
+    <!-- <title>Responsive Sidebar Menu</title> -->
+    <link rel="stylesheet" href="/css/edit.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="/js/edit.js"></script>
+  </head>
+  <body>
+    <div class="background-wrap">
+      <div class="background"></div>
+    </div>
+    <div class="main">
+    
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+      <header>NodeMCU</header>
+      <a href="/dashboard">
+        <i class="fas fa-qrcode"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="/products">
+        <i class="fas fa-link"></i>
+        <span>Device List</span>
+      </a>
+      <a href="/logview">
+        <i class="fas fa-stream"></i>
+        <span>Log View</span>
+      </a>
+     <!-- <a href="#">
+         <i class="fas fa-calendar"></i>
+        <span>Events</span>
+      </a>
+      <a href="#">
+        <i class="far fa-question-circle"></i>
+        <span>About</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-sliders-h"></i>
+        <span>Services</span>
+      </a>
+      <a href="#">
+        <i class="far fa-envelope"></i>
+        <span>Contact</span>
+      </a>
+    -->
+    </div>
+    <div class="container">
+      <h2>디바이스 수정</h2>
+      <form id="editProductForm" action="/products/update/<%= product._id %>" method="POST">
+        <div class="edit_input">
+          <input type="text" id="name" name="name" value="<%= product.name %>" readonly>
+          <input type="text" id="serialNumber" name="serialNumber" value="<%= product.serialNumber %>" readonly>
+          <input type="text" name="latitude" placeholder="위도" required>
+          <input type="text" name="longitude" placeholder="경도" required>
+          <input type="date" class="date" name="registrationDate" required>
+        </div>
+        <div class="edit_button">
+          <button type="button" onclick="confirmUpdate()">수정 완료</button>
+          <a href="/products">
+            <button id="back" type="button">뒤로</button>
+          </a>
+        </div>
+      </form>
+      <!-- 팝업 창 -->
+<!-- <div id="confirmationPopup" class="popup" style="display:none;">
+  <div class="popup-content">
+    <p class="ment">정말로 정보를 수정하시겠습니까?</p>
+    <button class="confirm" onclick="submitForm()">확인</button>
+    <button class="cancel" onclick="closePopup()">취소</button>
+  </div>
+</div> -->
+    </div>
+</div>
+<p class="logout">
+  <a href="/logout">
+  <button type="button">로그아웃</button>
+  </a>
+</p>
+</body>
+</html>

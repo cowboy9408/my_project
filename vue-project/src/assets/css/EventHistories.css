@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  color:#767474;
+
+}
+
+#history{
+  width: 1650px; 
+  height:880px; 
+  
+}
+
+#cardTitle {
+  font-weight: bold;
+  font-size:20px;
+
+}
+
+#leftComponent {
+  width: 410px;
+  margin-left: 50px;
+  margin-top: 30px;
+  float: left;
+}
+
+#histories2 {
+  width: 1200px;
+  margin-left: 70px;
+  margin-top: 30px;
+  height: 818px;
+  border-radius: 10px;
+  box-shadow: 3px 10px 10px #bdbebd;
+  float: left;
+}
+
+#backImg {
+  width: 700px;
+  height: 700px;
+  z-index: -200;
+  position: absolute;
+  left: 10px;
+  top: 160px;
+  opacity: 0.4;
+}
+
+.h-card-date {
+  color: blue;
+  float: right;
+  font-size: 13px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.h-card-title {
+  font-size: 19px;
+}
+.h-card-content{
+  font-size:17px;
+  height: 25px;
+}
+
+.datePicker {
+  --va-date-picker-cell-size: 55px;
+  margin-top : 50px;
+  box-shadow: 1px 1px 2px 2px gray;
+  border-radius: 5px;
+  }
+
+.fourCard{
+  width: 430px;
+  height: 340px;
+}
+
+.datePicker{
+  border-top: 3px solid orange;
+  width:430px;
+  height: 430px;
+}
+
+.darkseagreen{
+  border-top: 3px solid darkseagreen;
+}
+
+.scrollContainer {
+  max-height: 763px; 
+  height: 763px;
+}

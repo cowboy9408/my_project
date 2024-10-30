@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nodeMCU 회원가입</title>
+    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="/js/register.js"></script> -->
+</head>
+<body>
+    <div class="background-wrap">
+        <div class="background"></div>
+      </div>
+    
+    <form id="registerForm" action="/register" method="POST">
+        <h1>회원가입</h1>
+        <div  class="inset">
+            <p>
+                <input type="text" id="username" name="username" placeholder="아이디" required>
+                <span id="usernameError" class="error-message1"></span>
+            </p>
+            <p>
+                <input type="password" id="password" name="password" placeholder="비밀번호" required>
+                <span id="passwordError" class="error-message2"></span>
+            </p>
+            <p>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="비밀번호 확인" required>
+                <span id="confirmPasswordError" class="error-message3"></span>
+            </p>
+            <p>
+                <input type="text" name="phoneNumber" id="phoneNumber" placeholder="휴대폰 번호" required>
+            </p>
+            <button id="send" type="button" onclick="sendVerificationCode()">인증번호 전송</button>
+            <p>
+                <input type="text" name="verificationCode" id="verificationCode" placeholder="인증번호" required>
+            </p>
+            <button id="verify" type="button" onclick="verifyCode()">인증</button>
+        </div>
+        <p class="p-container">
+            <button type="submit">가입 완료</button>
+        </p>
+        <p class="login">
+            <a href="/login">
+           <button type="button">뒤로</button>
+         </a>
+    </form>
+    <script>
+        // 아이디와 비밀번호 정규식
+        const usernameRegex = /^[a-zA-Z0-9]{4,20}$/; // 아이디: 영문자와 숫자로 이루어진 4~20자
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$/; // 비밀번호: 영문자, 숫자, 특수문자를 포함한 8~20자
+
+        function validateUsername(username) {
+            return usernameRegex.test(username);
+        }
+
+        function validatePassword(password) {
+            return passwordRegex.test(password);
+        }
+
+        function displayError(elementId, message) {
+            document.getElementById(elementId).innerText = message;
+        }
+
+        document.getElementById('username').addEventListener('input', function() {
+            const username = this.value;
+            if (!validateUsername(username)) {
+                displayError('usernameError', '아이디는 영문자와 숫자로 이루어진 4~20자여야 합니다.');
+            } else {
+                displayError('usernameError', '');
+            }
+        });
+
+        document.getElementById('password').addEventListener('input', function() {
+            const password = this.value;
+            if (!validatePassword(password)) {
+                displayError('passwordError', '비밀번호는 영문자, 숫자, 특수문자를 포함한 8~20자여야 합니다.');
+            } else {
+                displayError('passwordError', '');
+            }
+            checkPasswordMatch();
+        });
+
+        document.getElementById('confirmPassword').addEventListener('input', checkPasswordMatch);
+
+        // 비밀번호와 비밀번호 확인의 일치 여부를 검사하는 함수
+        function checkPasswordMatch() {
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (password !== confirmPassword) {
+        displayError('confirmPasswordError', '비밀번호가 일치하지 않습니다.');
+    } else {
+        displayError('confirmPasswordError', '');
+    }
+}
+
+       
+
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            let valid = true;
+
+            if (!validateUsername(username)) {
+                displayError('usernameError', '아이디는 영문자와 숫자로 이루어진 4~20자여야 합니다.');
+                valid = false;
+            }
+
+            if (!validatePassword(password)) {
+                displayError('passwordError', '비밀번호는 영문자, 숫자, 특수문자를 포함한 8~20자여야 합니다.');
+                valid = false;
+            }
+
+            if (password !== confirmPassword) {
+        displayError('confirmPasswordError', '비밀번호가 일치하지 않습니다.');
+        valid = false;
+    }
+
+            if (!valid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

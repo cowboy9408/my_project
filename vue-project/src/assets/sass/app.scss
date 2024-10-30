@@ -1,0 +1,27 @@
+:root {
+  --va-font-family: 'NotoKr', 'Noto Sans KR', sans-serif;
+  --va-color: #767474;
+  --va-card-color: #767474;
+}
+
+.loginBtn {
+  --va-button-font-size: 30px;
+}
+
+// --va-card-stripe-border-size: 2px;
+
+.va-timeline-item {
+  &__before {
+    flex: initial !important;
+    width: 200px !important;
+  }
+
+  &__after {
+    flex: initial !important;
+    width: 860px !important;
+  }
+}
+
+.va-button--large .va-button__content {
+  color: #767474;
+}
